@@ -2,7 +2,6 @@
   <div class="menu col-md-2 pt-5 pl-3">
     <ul class="list-unstyled">
       <li class="mb-5 mx-2 d-flex">
-        <img src="https://image.flaticon.com/icons/svg/3089/3089925.svg" class="homeLogo" />
         <h1 class="text-light font-weight-bold fz-36">後台管理平台</h1>
       </li>
       <li class="mb-3">
