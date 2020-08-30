@@ -1,6 +1,16 @@
 <template>
   <div class="wrap container-fluid">
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading">
+      <template slot="default">
+        <div class="loadingio-spinner-eclipse-r1twaurvtum">
+          <div class="ldio-qkw9u78zjtk">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </template>
+    </loading>
     <div class="row">
       <div class="loginBanner col-md-4">
         <h1 class="mb-5">KLÁSIKO</h1>

@@ -1,6 +1,16 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading">
+      <template slot="default">
+        <div class="loadingio-spinner-eclipse-r1twaurvtum">
+          <div class="ldio-qkw9u78zjtk">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </template>
+    </loading>
     <div class="my-5 d-flex justify-content-start">
       <button
         type="button"

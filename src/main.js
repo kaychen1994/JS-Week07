@@ -11,6 +11,7 @@ import zhTW from './zh_TW.js'
 import * as rules from 'vee-validate/dist/rules' // 驗證規則
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '@/assets/scss/all.scss'
 import $ from 'jquery'
 import App from './App.vue'
 import router from './router'
