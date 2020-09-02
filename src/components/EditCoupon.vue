@@ -10,7 +10,13 @@
       <div class="modal-body">
         <div>
           <label for="name" class="mb-3">名稱</label>
-          <input id="name" type="text" v-model="tempCoupon.title" class="px-3 py-1 w-100" placeholder="請輸入名稱" />
+          <input
+            id="name"
+            type="text"
+            v-model="tempCoupon.title"
+            class="px-3 py-1 w-100"
+            placeholder="請輸入名稱"
+          />
           <div class="d-flex mt-3">
             <div class="mr-3">
               <label class="mb-3">折扣碼</label>
@@ -38,7 +44,13 @@
             </div>
             <div class="mr-3">
               <label class="mb-3">到期時間</label>
-              <input type="time" step="1" v-model="due_time" class="px-3 py-1 w-100" placeholder="請輸入到期時間" />
+              <input
+                type="time"
+                step="1"
+                v-model="due_time"
+                class="px-3 py-1 w-100"
+                placeholder="請輸入到期時間"
+              />
             </div>
           </div>
           <p class="mt-3">{{ tempCoupon.deadline_at }}</p>
@@ -87,11 +99,12 @@ export default {
         .get(url)
         .then((res) => {
           this.tempCoupon = res.data.data
-          $('#editCoupon').modal('show')
           // 使用 split 切割相關時間戳
           const dedlineAt = this.tempCoupon.deadline.datetime.split(' ')
-          this.due_date = dedlineAt
-          this.due_time = dedlineAt
+          ;[this.due_date, this.due_time] = dedlineAt // 設定日期 eslint standard 前面要加 ; 不然不改過
+          // this.due_date = dedlineAt
+          // this.due_time = dedlineAt
+          $('#editCoupon').modal('show') // fix 在打開視窗前設定日期就能解決每次編輯優惠券的時間空白問題
         })
         .catch((err) => {
           console.log(err.response)
