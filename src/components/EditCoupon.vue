@@ -102,8 +102,6 @@ export default {
           // 使用 split 切割相關時間戳
           const dedlineAt = this.tempCoupon.deadline.datetime.split(' ')
           ;[this.due_date, this.due_time] = dedlineAt // 設定日期 eslint standard 前面要加 ; 不然不改過
-          // this.due_date = dedlineAt
-          // this.due_time = dedlineAt
           $('#editCoupon').modal('show') // fix 在打開視窗前設定日期就能解決每次編輯優惠券的時間空白問題
         })
         .catch((err) => {

@@ -139,16 +139,16 @@ export default {
       switch (isNew) {
         case 'new': {
           // 新增
-          this.$refs.editCoupon.tempCoupon = {} // fix
           this.isNew = true
+          this.$refs.editCoupon.tempCoupon = {} // fix
           $('#editCoupon').modal('show')
           break
         }
         case 'edit': {
           // 編輯
           this.isNew = false
-          this.$refs.editCoupon.editDetails(item.id)
           this.tempCoupon = Object.assign({}, item) // fix // 淺拷貝
+          this.$refs.editCoupon.editDetails(item.id)
           // editDetails 要去 editcoupon methods
           break
         }
