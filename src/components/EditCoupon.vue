@@ -1,69 +1,80 @@
 <template>
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-dark py-4">
-        <h3 class="modal-title text-light" id="exampleModalLabel">新增/編輯折扣碼</h3>
-        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <label for="name" class="mb-3">名稱</label>
-          <input
-            id="name"
-            type="text"
-            v-model="tempCoupon.title"
-            class="px-3 py-1 w-100"
-            placeholder="請輸入名稱"
-          />
-          <div class="d-flex mt-3">
-            <div class="mr-3">
-              <label class="mb-3">折扣碼</label>
-              <input
-                type="text"
-                v-model="tempCoupon.code"
-                class="px-3 py-1 w-100"
-                placeholder="請輸入折扣碼"
-              />
+  <div
+    id="editCoupon"
+    class="modal fade"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-dark py-4">
+          <h3 class="modal-title text-light" id="exampleModalLabel">新增/編輯折扣碼</h3>
+          <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <label for="name" class="mb-3">名稱</label>
+            <input
+              id="name"
+              type="text"
+              v-model="tempCoupon.title"
+              class="px-3 py-1 w-100"
+              placeholder="請輸入名稱"
+            />
+            <div class="d-flex mt-3">
+              <div class="mr-3">
+                <label class="mb-3">折扣碼</label>
+                <input
+                  type="text"
+                  v-model="tempCoupon.code"
+                  class="px-3 py-1 w-100"
+                  placeholder="請輸入折扣碼"
+                />
+              </div>
+              <div>
+                <label class="mb-3">折扣百分比</label>
+                <input
+                  type="text"
+                  v-model="tempCoupon.percent"
+                  class="px-3 py-1 w-100"
+                  placeholder="請輸入折扣百分比"
+                />
+              </div>
             </div>
-            <div>
-              <label class="mb-3">折扣百分比</label>
-              <input
-                type="text"
-                v-model="tempCoupon.percent"
-                class="px-3 py-1 w-100"
-                placeholder="請輸入折扣百分比"
-              />
+            <div class="d-flex mt-3">
+              <div class="mr-3">
+                <label class="mb-3">到期日</label>
+                <input type="date" v-model="due_date" class="px-3 py-1 w-100" placeholder="請輸入到期日" />
+              </div>
+              <div class="mr-3">
+                <label class="mb-3">到期時間</label>
+                <input
+                  type="time"
+                  step="1"
+                  v-model="due_time"
+                  class="px-3 py-1 w-100"
+                  placeholder="請輸入到期時間"
+                />
+              </div>
             </div>
-          </div>
-          <div class="d-flex mt-3">
-            <div class="mr-3">
-              <label class="mb-3">到期日</label>
-              <input type="date" v-model="due_date" class="px-3 py-1 w-100" placeholder="請輸入到期日" />
+            <p class="mt-3">{{ tempCoupon.deadline_at }}</p>
+            <hr class="mt-3" />
+            <div class="mt-3 d-flex align-items-center">
+              <input type="checkbox" class="mr-3" id="enabled" v-model="tempCoupon.enabled" />
+              <label for="enabled">是否啟用</label>
             </div>
-            <div class="mr-3">
-              <label class="mb-3">到期時間</label>
-              <input
-                type="time"
-                step="1"
-                v-model="due_time"
-                class="px-3 py-1 w-100"
-                placeholder="請輸入到期時間"
-              />
-            </div>
-          </div>
-          <p class="mt-3">{{ tempCoupon.deadline_at }}</p>
-          <hr class="mt-3" />
-          <div class="mt-3 d-flex align-items-center">
-            <input type="checkbox" class="mr-3" id="enabled" v-model="tempCoupon.enabled" />
-            <label for="enabled">是否啟用</label>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger py-2 px-5" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-info py-2 px-5" @click="updateCoupon">確認</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger py-2 px-5" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-info py-2 px-5" @click="updateCoupon">確認</button>
+        </div>
       </div>
     </div>
   </div>

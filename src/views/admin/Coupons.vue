@@ -60,31 +60,9 @@
       </tbody>
     </table>
     <!-- coupon modal -->
-    <div
-      id="editCoupon"
-      class="modal fade"
-      data-backdrop="static"
-      data-keyboard="false"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <edit-coupon ref="editCoupon" :is-new="isNew" @update="getCoupons"></edit-coupon>
-    </div>
+    <edit-coupon ref="editCoupon" :is-new="isNew" @update="getCoupons"></edit-coupon>
     <!-- del coupon modal -->
-    <div
-      id="delCoupon"
-      class="modal fade"
-      data-backdrop="static"
-      data-keyboard="false"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <del-coupon :temp-coupon="tempCoupon" @update="getCoupons"></del-coupon>
-    </div>
+    <del-coupon :temp-coupon="tempCoupon" @update="getCoupons"></del-coupon>
     <!-- pagination 前內後外-->
     <pagination :pages="pagination" @update="getCoupons"></pagination>
   </div>
@@ -141,6 +119,8 @@ export default {
           // 新增
           this.isNew = true
           this.$refs.editCoupon.tempCoupon = {} // fix
+          this.$refs.editCoupon.due_date = '' // fix 清空 due_date
+          this.$refs.editCoupon.due_time = '' // fix 清空 due_time
           $('#editCoupon').modal('show')
           break
         }
